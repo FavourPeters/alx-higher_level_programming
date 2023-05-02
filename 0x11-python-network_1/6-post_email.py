@@ -9,7 +9,8 @@ import requests
 
 if __name__ == "__main__":
     url = sys.argv[1]
+    value = {"email": sys.argv[2]}
 
-    request = requests.Request(url)
+    request = requests.Request(url, value)
     with requests.urlopen(request) as response:
         print(dict(response.headers).get("X-Request-Id"))
